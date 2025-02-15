@@ -7,3 +7,58 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Keania+One&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Press+Start+2P&family=Righteous&family=Sixtyfour&family=Syne+Mono&family=Wallpoet&display=swap" );
+
+
+/* Korean Font */
+.noto-sans-kr {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.noto-serif-kr {
+    font-family: "Noto Serif KR", serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* English Title */
+.righteous-regular {
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* English Body Text */
+.josefin-sans {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* English Quote Serif */
+.pt-serif-regular {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.pt-serif-bold {
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.pt-serif-regular-italic {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.pt-serif-bold-italic {
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-style: italic;
+}
