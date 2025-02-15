@@ -119,7 +119,7 @@ analytics:
 # Site Author
 author:
   name             : "99a_99u"
-  avatar           : /assets/images/heart.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : /assets/images/heart2.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "타닥타닥...작업 중!🎀"
   location         : "Seoul, Korea"
   email            : "ggaggu@snu.ac.kr"
