@@ -58,12 +58,18 @@ $(function() {
 
     winWidth = $( window ).width();
     // Set the current CSS width breakpoint: 0: <768px, 1: <1024px, 2: < 1280px, 3: >= 1280px.
-    var curBreakpoint = winWidth < 768 ? 0 : winWidth < 1024 ? 1 : winWidth < 1280 ? 2 : 3;
+    //기존방식//var curBreakpoint = winWidth < 768 ? 0 : winWidth < 1024 ? 1 : winWidth < 1280 ? 2 : 3;
     // If current breakpoint is different from last measured breakpoint, measureLinks again
-    if(curBreakpoint !== lastBreakpoint) measureLinks();
+    //기존 방식//if(curBreakpoint !== lastBreakpoint) measureLinks();
     // Set the last measured CSS width breakpoint with the current breakpoint
-    lastBreakpoint = curBreakpoint;
+    //기존방식//lastBreakpoint = curBreakpoint;
 
+    // 새로운 방식: 497px 이하일 때 모든 메뉴를 한 번에 햄버거로 전환 =>네비바 3개일 때
+    if (winWidth <= 497) {
+        $hlinks.append($vlinks.children());  // 모든 링크를 hidden-links로 이동
+        $btn.removeClass("hidden"); // 햄버거 버튼 보이게
+        return; // 여기서 함수 종료 (추가적인 반복 막기)
+    }
     // Get instant state
     numOfVisibleItems = $vlinks.children().length;
     // Decrease the width of visible elements from the nav innerWidth to find out the available space for navItems
@@ -77,12 +83,12 @@ $(function() {
     // There is not enought space
     if (requiredSpace > availableSpace) {
       $vlinks.children().last().prependTo($hlinks);
-      numOfVisibleItems -= 1;
+      //numOfVisibleItems -= 1;
       check();
       // There is more than enough space. If only one element is hidden, add the toggle width to the available space
     } else if (availableSpace + (numOfVisibleItems === breakWidths.length - 1?$btn.outerWidth(true):0) > breakWidths[numOfVisibleItems]) {
       $hlinks.children().first().appendTo($vlinks);
-      numOfVisibleItems += 1;
+      //numOfVisibleItems += 1;
       check();
     }
     // Update the button accordingly

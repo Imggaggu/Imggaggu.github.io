@@ -3,12 +3,13 @@ main:
   #- title: "Quick-Start Guide"
     #url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   - title: "About"
-    url: https://Imggaggu.github.io/Imggaggu/about/
+    url: https://Imggaggu.github.io/Imggaggu-about/
+  - title: "Project"
+    url: https://Imggaggu.github.io/projects-archive/
   - title: "Github"
     url: https://github.com/Imggaggu
-  - title: "Blog"
-    url: /year-archive/
-  - title: "Archive"
-    url: /projects-archive/
+  #- title: "Blog"
+   # url: /year-archive/
+
   #- title: "Sitemap"
     #url: /sitemap/
