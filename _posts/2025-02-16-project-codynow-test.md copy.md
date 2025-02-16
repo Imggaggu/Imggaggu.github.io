@@ -1,6 +1,6 @@
 ---
-title: "[GithubPages] 깃허브 페이지란?2"
-excerpt: "두번째테스트중"
+title: "[GithubPages] 깃허브 페이지란?"
+excerpt: "테스트중"
 
 categories:
   - GithubPages
