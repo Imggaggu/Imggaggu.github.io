@@ -70,6 +70,7 @@ $(function() {
   $btn.on('click', function() {
     $hlinks.toggleClass('hidden');
     $(this).toggleClass('close');
+    clearTimeout(timer);
   });
 
   $hlinks.on("click", function() {
@@ -90,3 +91,32 @@ $(function() {
     } else check();
   } else check();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
