@@ -83,12 +83,12 @@ $(function() {
     // There is not enought space
     if (requiredSpace > availableSpace) {
       $vlinks.children().last().prependTo($hlinks);
-      //numOfVisibleItems -= 1;
+      /*numOfVisibleItems -= 1;*/
       check();
       // There is more than enough space. If only one element is hidden, add the toggle width to the available space
     } else if (availableSpace + (numOfVisibleItems === breakWidths.length - 1?$btn.outerWidth(true):0) > breakWidths[numOfVisibleItems]) {
       $hlinks.children().first().appendTo($vlinks);
-      //numOfVisibleItems += 1;
+      /*numOfVisibleItems += 1;*/
       check();
     }
     // Update the button accordingly
