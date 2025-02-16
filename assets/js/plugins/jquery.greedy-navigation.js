@@ -1,11 +1,4 @@
-/*
-GreedyNav.js - https://github.com/lukejacksonn/GreedyNav
-Licensed under the MIT license - http://opensource.org/licenses/MIT
-Copyright (c) 2015 Luke Jackson http://lukejacksonn.com
-*/
-
 $(function() {
-
   var $btn = $("nav.greedy-nav .greedy-nav__toggle");
   var $vlinks = $("nav.greedy-nav .visible-links");
   var $hlinks = $("nav.greedy-nav .hidden-links");
@@ -15,124 +8,85 @@ $(function() {
   var $title = $("nav.greedy-nav .site-title");
   var $search = $('nav.greedy-nav button.search__toggle');
 
-  var numOfItems, totalSpace, closingTime, breakWidths;
-
-  // This function measures both hidden and visible links and sets the navbar breakpoints
-  // This is called the first time the script runs and everytime the "check()" function detects a change of window width that reached a different CSS width breakpoint, which affects the size of navbar Items
-  // Please note that "CSS width breakpoints" (which are only 4) !== "navbar breakpoints" (which are as many as the number of items on the navbar)
-  function measureLinks(){
-    numOfItems = 0;
-    totalSpace = 0;
-    closingTime = 1000;
-    breakWidths = [];
-
-    // Adds the width of a navItem in order to create breakpoints for the navbar
-    function addWidth(i, w) {
-      totalSpace += w;
-      numOfItems += 1;
-      breakWidths.push(totalSpace);
-    }
-
-    // Measures the width of hidden links by making a temporary clone of them and positioning under visible links
-    function hiddenWidth(obj){
-      var clone = obj.clone();
-      clone.css("visibility","hidden");
-      $vlinks.append(clone);
-      addWidth(0, clone.outerWidth());
-      clone.remove();
-    }
-    // Measure both visible and hidden links widths
-    $vlinks.children().outerWidth(addWidth);
-    $hlinks.children().each(function(){hiddenWidth($(this))});
-  }
-  // Get initial state
-  measureLinks();
-
-  var winWidth = $( window ).width();
-  // Set the last measured CSS width breakpoint: 0: <768px, 1: <1024px, 2: < 1280px, 3: >= 1280px.
-  var lastBreakpoint = winWidth < 768 ? 0 : winWidth < 1024 ? 1 : winWidth < 1280 ? 2 : 3;
-
-  var availableSpace, numOfVisibleItems, requiredSpace, timer;
-
   function check() {
+    var winWidth = $(window).width();
 
-    winWidth = $( window ).width();
-    // Set the current CSS width breakpoint: 0: <768px, 1: <1024px, 2: < 1280px, 3: >= 1280px.
-    //기존방식//var curBreakpoint = winWidth < 768 ? 0 : winWidth < 1024 ? 1 : winWidth < 1280 ? 2 : 3;
-    // If current breakpoint is different from last measured breakpoint, measureLinks again
-    //기존 방식//if(curBreakpoint !== lastBreakpoint) measureLinks();
-    // Set the last measured CSS width breakpoint with the current breakpoint
-    //기존방식//lastBreakpoint = curBreakpoint;
-
-    // 새로운 방식: 497px 이하일 때 모든 메뉴를 한 번에 햄버거로 전환 =>네비바 3개일 때
     if (winWidth <= 497) {
-        $hlinks.append($vlinks.children());  // 모든 링크를 hidden-links로 이동
-        $btn.removeClass("hidden"); // 햄버거 버튼 보이게
-        return; // 여기서 함수 종료 (추가적인 반복 막기)
-    }
-    // Get instant state
-    numOfVisibleItems = $vlinks.children().length;
-    // Decrease the width of visible elements from the nav innerWidth to find out the available space for navItems
-    availableSpace = /* nav */ $nav.innerWidth()
-                   - /* logo */ ($logo.length !== 0 ? $logo.outerWidth(true) : 0)
-                   - /* title */ $title.outerWidth(true)
-                   - /* search */ ($search.length !== 0 ? $search.outerWidth(true) : 0)
-                   - /* toggle */ (numOfVisibleItems !== breakWidths.length ? $btn.outerWidth(true) : 0);
-    requiredSpace = breakWidths[numOfVisibleItems - 1];
+      // 🔹 497px 이하일 때 모든 항목 한꺼번에 숨김
+      $vlinks.children().appendTo($hlinks);
+      $btn.removeClass('hidden').addClass('close');
+    } else {
+      // 🔹 497px 이상일 때 모든 항목 한꺼번에 다시 보이게
+      $hlinks.children().appendTo($vlinks);
+      $btn.addClass('hidden').removeClass('close');
 
-    // There is not enought space
-    if (requiredSpace > availableSpace) {
-      $vlinks.children().last().prependTo($hlinks);
-      /*numOfVisibleItems -= 1;*/
-      check();
-      // There is more than enough space. If only one element is hidden, add the toggle width to the available space
-    } else if (availableSpace + (numOfVisibleItems === breakWidths.length - 1?$btn.outerWidth(true):0) > breakWidths[numOfVisibleItems]) {
-      $hlinks.children().first().appendTo($vlinks);
-      /*numOfVisibleItems += 1;*/
-      check();
+      // 🔹 공간이 부족하면 3개씩 한 번에 숨김
+      var availableSpace = $nav.innerWidth()
+        - ($logo.length ? $logo.outerWidth(true) : 0)
+        - $title.outerWidth(true)
+        - ($search.length ? $search.outerWidth(true) : 0)
+        - $btn.outerWidth(true);
+
+      var items = $vlinks.children();
+      var totalWidth = 0;
+      var hideCount = 0;
+
+      items.each(function() {
+        totalWidth += $(this).outerWidth(true);
+        if (totalWidth > availableSpace) {
+          hideCount += 1;
+        }
+      });
+
+      // 3개 단위로 조정
+      if (hideCount > 0) {
+        var removeCount = Math.ceil(hideCount / 3) * 3;
+        for (var i = 0; i < removeCount; i++) {
+          $vlinks.children().last().prependTo($hlinks);
+        }
+      }
+
+      // 공간이 충분하면 3개씩 다시 나타남
+      while ($hlinks.children().length > 0 && $nav.innerWidth() > totalWidth + $hlinks.children().first().outerWidth(true) * 3) {
+        for (var j = 0; j < 3; j++) {
+          if ($hlinks.children().length > 0) {
+            $hlinks.children().first().appendTo($vlinks);
+          }
+        }
+      }
+
+      // 버튼 상태 업데이트
+      if ($hlinks.children().length === 0) {
+        $btn.addClass('hidden');
+      } else {
+        $btn.removeClass('hidden');
+      }
     }
-    // Update the button accordingly
-    $btn.attr("count", numOfItems - numOfVisibleItems);
-    if (numOfVisibleItems === numOfItems) {
-      $btn.addClass('hidden');
-    } else $btn.removeClass('hidden');
   }
 
-  // Window listeners
-  $(window).resize(function() {
-    check();
-  });
+  $(window).resize(check);
+  check();
 
   $btn.on('click', function() {
     $hlinks.toggleClass('hidden');
     $(this).toggleClass('close');
-    clearTimeout(timer);
   });
 
-  $hlinks.on("click", function () {
-    // Hide the hidden links & remove the overlay when one is clicked.
+  $hlinks.on("click", function() {
     $hlinks.addClass("hidden");
     $btn.removeClass("close");
   }).on('mouseleave', function() {
-    // Mouse has left, start the timer
-    timer = setTimeout(function() {
+    setTimeout(function() {
       $hlinks.addClass('hidden');
       $('.greedy-nav__toggle').removeClass('close');
-    }, closingTime);
+    }, 1000);
   }).on('mouseenter', function() {
-    // Mouse is back, cancel the timer
     clearTimeout(timer);
-  })
+  });
 
-  // check if page has a logo
-  if($logoImg.length !== 0){
-    // check if logo is not loaded
-    if(!($logoImg[0].complete || $logoImg[0].naturalWidth !== 0)){
-      // if logo is not loaded wait for logo to load or fail to check
+  if ($logoImg.length) {
+    if (!($logoImg[0].complete || $logoImg[0].naturalWidth !== 0)) {
       $logoImg.one("load error", check);
-    // if logo is already loaded just check
     } else check();
-  // if page does not have a logo just check
   } else check();
-
 });
