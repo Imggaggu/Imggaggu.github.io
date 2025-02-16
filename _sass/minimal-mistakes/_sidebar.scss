@@ -19,12 +19,12 @@
   @include breakpoint($large) {
     float: inline-start;
     width: calc(#{$right-sidebar-width-narrow} - 1em);
-    opacity: 0.75;
+    opacity: 1;
     -webkit-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
 
     &:hover {
-      opacity: 1;
+      opacity: 0.9;
     }
 
     &.sticky {
@@ -51,7 +51,7 @@
   h5,
   h6 {
     margin-bottom: 0;
-    font-family: $sans-serif-narrow;
+    font-family: $josefin-sans;
   }
 
   p,
@@ -59,6 +59,7 @@
     font-family: $sans-serif;
     font-size: $type-size-6;
     line-height: 1.5;
+    font-weight: 450;
   }
 
   img {
@@ -171,7 +172,7 @@
   }
 }
 .sidebar .author__name {
-  font-family: $sans-serif;
+  font-family: $josefin-sans;
   font-size: $type-size-5;
 }
 

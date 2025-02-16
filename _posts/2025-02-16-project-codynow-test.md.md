@@ -1,11 +1,11 @@
 ---
-title: "test 게시물"
+title: "[GithubPages] 깃허브 페이지란?"
 excerpt: "테스트중"
 
 categories:
-  - CodyNow
+  - GithubPages
 tags:
-  - [project, llm, python ,django]
+  - [project,github]
 
 permalink: /project/codynow/test
 

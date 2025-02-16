@@ -24,6 +24,9 @@ $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 /* sans serif typefaces */
 $sans-serif-narrow: $sans-serif !default;
 $helvetica: Helvetica, "Helvetica Neue", Arial, sans-serif !default;
+/*🎀내가 추가한 sans serif*/
+$righteous-regular: "Righteous", sans-serif;
+$josefin-sans:"Josefin Sans", sans-serif;
 
 /* serif typefaces */
 $georgia: Georgia, serif !default;
@@ -31,10 +34,20 @@ $times: Times, serif !default;
 $bodoni: "Bodoni MT", serif !default;
 $calisto: "Calisto MT", serif !default;
 $garamond: Garamond, serif !default;
-
+/*🎀내가 추가한 serif*/
+$abril-fatface: "Abril Fatface", serif !default;
+$pt-serif: "PT Serif", serif !default;
+$do-hyeon-regular: "Do Hyeon", serif !default;
+/*
 $global-font-family: $sans-serif !default;
 $header-font-family: $sans-serif !default;
 $caption-font-family: $serif !default;
+*/
+/*🎀*/
+$global-font-family: $righteous-regular !default;
+$header-font-family: $righteous-regular !default;
+$caption-font-family: $pt-serif !default;
+
 
 /* type scale */
 $type-size-1: 2.441em !default; // ~39.056px
