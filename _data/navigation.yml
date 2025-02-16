@@ -4,9 +4,11 @@ main:
     #url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   - title: "About"
     url: https://Imggaggu.github.io/Imggaggu/about/
+  - title: "Github"
+    url: https://github.com/Imggaggu
   - title: "Blog"
     url: /year-archive/
-  - title: "Collections"
-    url: /collection-archive/
+  - title: "Archive"
+    url: /projects-archive/
   #- title: "Sitemap"
     #url: /sitemap/
