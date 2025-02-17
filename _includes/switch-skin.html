@@ -1,0 +1,71 @@
+<!--스킨교체용 html이지만 잘 안되므로 나중을 기약약-->
+
+<div class="switch-skin-container">
+    <h6>Switch Skin</h6>
+    <div class="avatar-options">
+        <img src="/assets/images/natural.jpg" onclick="changeProfile('natural', '/assets/images/natural.jpg', '타닥타닥...작업 중!🌿🕊️', 'natural')" alt="Natural">
+        <img src="/assets/images/pureblue.jpg" onclick="changeProfile('pureblue', '/assets/images/pureblue.jpg', '타닥타닥...작업 중!💙🌀', 'pureblue')" alt="Pure Blue">
+        <img src="/assets/images/heart2.jpg" onclick="changeProfile('blackpink', '/assets/images/heart2.jpg', '타닥타닥...작업 중!🎀', 'blackpink')" alt="Blackpink">
+        <img src="/assets/images/blue.jpg" onclick="changeProfile('blue', '/assets/images/blue.jpg', '타닥타닥...작업 중!🌊', 'blue')" alt="Blue">
+    </div>
+</div>
+
+<script>
+    // 프로필 변경 및 스킨 적용
+    function changeProfile(profileName, avatar, bio, skin) {
+        // 로컬 스토리지에 저장 (새로고침해도 유지)
+        localStorage.setItem("selectedProfile", profileName);
+        localStorage.setItem("selectedAvatar", avatar);
+        localStorage.setItem("selectedBio", bio);
+        localStorage.setItem("selectedSkin", skin);
+
+        // 프로필 사진 변경
+        document.querySelector(".author__avatar img").src = avatar;
+        
+        // 소개글 변경
+        document.querySelector(".author__bio").innerText = bio;
+
+        // 스킨 변경 (Jekyll에서 `_minimal.scss` 파일 로드)
+        document.documentElement.setAttribute("data-skin", skin);
+
+        // SCSS 파일 동적으로 변경
+        let currentSkin = document.getElementById("dynamic-skin");
+        if (currentSkin) {
+            currentSkin.href = `/assets/css/${skin}.css`; // 예: `/assets/css/natural.css`
+        } else {
+            let link = document.createElement("link");
+            link.id = "dynamic-skin";
+            link.rel = "stylesheet";
+            link.href = `/assets/css/${skin}.css`;
+            document.head.appendChild(link);
+        }
+
+        // 페이지 새로고침 (변경 적용)
+        location.reload();
+    }
+
+    // 페이지 로드 시 저장된 설정 적용
+    document.addEventListener("DOMContentLoaded", function () {
+        var savedAvatar = localStorage.getItem("selectedAvatar");
+        var savedBio = localStorage.getItem("selectedBio");
+        var savedSkin = localStorage.getItem("selectedSkin");
+
+        if (savedAvatar) {
+            document.querySelector(".author__avatar img").src = savedAvatar;
+        }
+
+        if (savedBio) {
+            document.querySelector(".author__bio").innerText = savedBio;
+        }
+
+        if (savedSkin) {
+            document.documentElement.setAttribute("data-skin", savedSkin);
+
+            let link = document.createElement("link");
+            link.id = "dynamic-skin";
+            link.rel = "stylesheet";
+            link.href = `/assets/css/${savedSkin}.css`;
+            document.head.appendChild(link);
+        }
+    });
+</script>
