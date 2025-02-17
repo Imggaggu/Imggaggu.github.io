@@ -7,7 +7,7 @@ categories:
 tags:
   - [project,github]
 
-permalink: /project/codynow/test
+permalink: /project/codynow/test2
 
 toc: true
 toc_sticky: true
