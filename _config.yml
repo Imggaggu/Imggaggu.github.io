@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "blackpink" #"default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "natural" #"pureblue" #"blackpink" #"default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 header:
@@ -119,8 +119,9 @@ analytics:
 # Site Author
 author:
   name             : "99a_99u"
-  avatar           : /assets/images/heart2.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "타닥타닥...작업 중!🎀"
+  avatar           : /assets/images/natural.jpg  #/assets/images/pureblue.jpg #/assets/images/heart2.jpg    # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  #blue-blue #pureblue-pureblue #natural-natural
+  bio              : "타닥타닥...작업 중!🌿🕊️" #"타닥타닥...작업 중!💙🌀" #"타닥타닥...작업 중!🌊" #"타닥타닥...작업 중!🎀"
   location         : "Seoul, Korea"
   email            : "ggaggu@snu.ac.kr"
   links:
