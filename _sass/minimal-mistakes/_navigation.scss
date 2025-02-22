@@ -401,6 +401,10 @@
       &:after {
         background-color: #fff;
       }
+      &:after {
+        transform: rotate(0deg);
+      }
+
     }
 
     /* on hover show expand*/
@@ -504,8 +508,7 @@
 
 .nav__sub-title{
  background-color: #8bd39e4f;
- /*
-  border-radius: 5px; 
+  /*border-radius: 5px; 
   border-block: 3px solid;
   border-color: #77a274;
   border-radius: 2px;*/
