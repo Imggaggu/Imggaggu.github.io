@@ -13,3 +13,28 @@ main:
 
   #- title: "Sitemap"
     #url: /sitemap/
+
+categories:
+  - title: "Languages"
+    children:
+      - title: "Python"
+        url: /languages/python/
+      - title: "C++"
+        url: /languages/cpp/
+
+  - title: "Projects"
+    children:
+      - title: "CodyNow"
+        url: /projects/codynow
+
+  - title: "Electronics"
+    children:
+      - title: "Arduino"
+        url: /electronics/arduino/
+    
+  - title: "Design"
+    children:
+      - title: "Projects"
+        url: /design/projects/
+      - title: "Tools"
+        url: /design/tools
