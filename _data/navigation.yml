@@ -14,6 +14,7 @@ main:
   #- title: "Sitemap"
     #url: /sitemap/
 
+
 categories:
   - title: "Languages"
     children:
@@ -25,16 +26,16 @@ categories:
   - title: "Projects"
     children:
       - title: "CodyNow"
-        url: /projects/codynow
+        url: /projects/codynow/
 
   - title: "Electronics"
     children:
       - title: "Arduino"
         url: /electronics/arduino/
-    
+
   - title: "Design"
     children:
       - title: "Projects"
         url: /design/projects/
       - title: "Tools"
-        url: /design/tools
+        url: /design/tools/
