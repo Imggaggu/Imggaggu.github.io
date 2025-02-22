@@ -60,7 +60,7 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
-    font-family: $sans-serif;
+    font-family: "Righteous", sans-serif;
   }
 
   li {
@@ -72,7 +72,7 @@
       display: block;
       margin-bottom: 0.25em;
       padding: 0.5em 1em;
-      font-family: $sans-serif;
+      font-family: "Righteous", sans-serif;
       font-size: 14px;
       font-weight: bold;
       line-height: 1.5;
@@ -439,9 +439,14 @@
 .nav__list .nav__items {
   margin: 0;
   font-size: 1.25rem;
-
+  ul{
+    margin-left: 1em;
+    padding: 0 0 0 1em;
+    border-left: 3px solid #8bd39e87;
+  }
   a {
     color: inherit;
+    font-family: "Righteous", sans-serif;
   }
 
   .active {
@@ -481,20 +486,29 @@
 .nav__title {
   margin: 0;
   padding: 0.5rem 0.75rem;
-  font-family: $sans-serif-narrow;
+  font-family: "Righteous", sans-serif;
   font-size: $type-size-5;
   font-weight: bold;
 }
 
 .nav__sub-title {
-  display: block;
+  display: inline-block;
+  padding: 1px 5px;
   margin: 0.5rem 0;
-  padding: 0.25rem 0;
   font-family: $righteous-regular;
   font-size: $type-size-6;
   font-weight: bold;
   text-transform: uppercase;
-  border-bottom: 1px solid $border-color;
+  /*border-bottom: 1px solid $border-color;*/
+}
+
+.nav__sub-title{
+ background-color: #8bd39e4f;
+ /*
+  border-radius: 5px; 
+  border-block: 3px solid;
+  border-color: #77a274;
+  border-radius: 2px;*/
 }
 
 /*
