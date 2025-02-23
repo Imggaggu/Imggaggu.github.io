@@ -331,3 +331,11 @@ defaults:
       related: true
       sidebar:  
         nav: "categories"
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: archive
+      author_profile: true
+      sidebar:  
+        nav: "categories"
