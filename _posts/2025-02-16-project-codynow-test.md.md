@@ -3,7 +3,7 @@ title: "[GithubPages] 깃허브 페이지란?2"
 excerpt: "두번째테스트중"
 
 categories:
-  - GithubPages
+  - Arduino
 tags:
   - [project,github]
 
