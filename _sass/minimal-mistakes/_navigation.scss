@@ -520,19 +520,22 @@
 
 .toc {
   font-family: $sans-serif-narrow;
-  color: $gray;
+  color:  $text-color;
   background-color: $background-color;
-  border: 1px solid $border-color;
+  // border: 1px solid $border-color;
   border-radius: $border-radius;
-  -webkit-box-shadow: $box-shadow;
-  box-shadow: $box-shadow;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  // -webkit-box-shadow: $box-shadow;
+  // box-shadow: $box-shadow;
 
   .nav__title {
-    color: #fff;
+    color:rgb(54, 54, 54);
+   
     font-size: $type-size-6;
-    background: $primary-color;
-    border-start-start-radius: $border-radius;
-    border-start-end-radius: $border-radius;
+    background: inherit;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    border-bottom: 3.5px solid rgba($primary-color, 1);
   }
 
   // Scrollspy marks toc items as .active when they are in focus
@@ -547,7 +550,6 @@
   width: 100%;
   list-style: none;
   font-size: $type-size-6;
-
   @include breakpoint($large) {
     font-size: $type-size-7;
   }
@@ -558,10 +560,12 @@
     color: $muted-text-color;
     font-weight: bold;
     line-height: 1.5;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 3px solid rgba($primary-color, 0.8);
 
     &:hover {
       color: $text-color;
+      font-weight: 500;
+      font-size: 100%;
     }
   }
 

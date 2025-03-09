@@ -1,7 +1,7 @@
 ---
 title: "Web"
 layout: category
-permalink: /etc/web/
+permalink: /subjects/web/
 author_profile: true
 taxonomy: Web
 sidebar:
