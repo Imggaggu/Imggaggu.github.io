@@ -1,6 +1,6 @@
 ---
 title: "[Web] 웹개론"
-excerpt: ""
+excerpt: "웹이란? 알아보자"
 
 categories:
   - Web
