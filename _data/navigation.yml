@@ -33,6 +33,12 @@ categories:
       - title: "Arduino"
         url: /electronics/arduino/
 
+  - title: "Subjects"
+    children:
+      - title: "Web"
+        url: /subjects/web/
+   
+
   - title: "Design"
     children:
       - title: "Projects"

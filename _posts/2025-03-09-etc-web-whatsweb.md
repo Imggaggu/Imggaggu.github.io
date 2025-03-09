@@ -1,11 +1,11 @@
 ---
-title: "웹개발개론"
+title: "[Web] 웹개발개론"
 excerpt: ""
 
 categories:
   - Web
-tags:
-  - [likelionsnu,pirogramming, web]
+#tags:
+ # - [likelion,pirogramming, web]
 
 permalink: /project/codynow/test2
 
