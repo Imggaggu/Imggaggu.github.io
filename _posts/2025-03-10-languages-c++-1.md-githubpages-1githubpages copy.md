@@ -3,9 +3,9 @@ title: "[C++] for문 안에서 전위연산자& 후위연산자"
 excerpt: ""
 
 categories:
-  - GithubPages
+  - C++
 tags:
-  - [project,github]
+  - [C++]
 
 permalink: /languages/cpp/1
 
